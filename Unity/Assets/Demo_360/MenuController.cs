@@ -12,7 +12,6 @@ public class MenuController : MonoBehaviour {
 	public GameObject	mMovieButtonPrefab;
 	public GameObject	mMovieButtonParent;
 	public Text			mMovieText;
-	public MovieController	mMovieController;
 
 	//[Range(0,360)]
 	//public float	mRotationSpeed = 1;
@@ -82,10 +81,9 @@ public class MenuController : MonoBehaviour {
 		if (mMovieButtonPrefab != null) {
 			GameObject NewButton = Instantiate (mMovieButtonPrefab) as GameObject;
 
-			var Config = NewButton.GetComponent<MovieButtonConfig>();
+			var Config = NewButton.GetComponent<DesktopWindow>();
 			if ( Config != null )
 			{
-				Config.mMovieController = mMovieController;
 				Config.SetFilename( Filename );
 			}
 			NewButton.transform.SetParent( mMovieButtonParent.transform );
